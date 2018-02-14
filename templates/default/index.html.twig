@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {#{% for route in routes %}#}
+        {#<li><a href='{{ app.request.schemeAndHttpHost ~ app.request.baseUrl ~ route.1.path}}'>{{ route.0 }}</a></li>#}
+    {#{% endfor %}#}
+    <div class="text-center">
+        <br>
+        <img src="https://www.thisolemom.com/wp-content/uploads/2017/02/Smoke-Alarm-Cheers-Me.jpg" width="40%">
+        <br><br>
+        <form action="{{ path('getrecipe') }}" method="post">
+            <div class="form-group row">
+                <div class="col-12">
+                    <input class="form-control text-center" name="search" placeholder="Enter recipe or ingredients (separated with , )" id="example-search-input">
+                </div>
+            </div>
+            <input type="submit" value="Me want food!">
+        </form>
+    </div>
+
+{% endblock body %}

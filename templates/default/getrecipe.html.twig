@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1 class="text-center">Recipes list</h1>
+
+    {% if error is defined %}
+        <div class="text-center">
+            <br>
+            <img src="https://pics.me.me/nothing-its-whats-for-dinner-6993504.png" width="50%">
+            <br>
+            <p>This recipe/ingredient is not on our database! <a href="{{ path('index') }}"> Try again!</a></p>
+
+        </div>
+    {% else %}
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Ingredients</th>
+                <th>Recipe details</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for recipe in recipes %}
+                <tr>
+                    <td><img src="{{ recipe.image_url }}" height="100px" width="150px"></td>
+                    <td>{{ recipe.title }}</td>
+                    <td><a href="{{ path('getingredient', { 'id': recipe.recipe_id }) }}">Ingredients</a></td>
+                    <td><a href="{{ recipe.source_url }}" target="_blank">Details</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+{% endblock body %}

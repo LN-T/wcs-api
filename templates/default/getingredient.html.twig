@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="text-center">
+        <h1 class="text-center">Ingredients list</h1>
+        <br>
+        <form action="" method="post">
+            <div class="form-group row">
+                <div class="col-12">
+                    <input class="form-control text-center" name="pax" placeholder="Enter multiplier" id="example-search-input">
+                </div>
+            </div>
+            <input type="submit" value="Multiply!">
+        </form>
+    </div>
+
+    <br>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Standard quantities</th>
+            <th>Your quantity</th>
+
+        </tr>
+        </thead>
+        <tbody>
+            {% for key, ingredient in ingredients %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ ingredient|e|number_format(2) }}</td>
+                <td>{% if multiple is defined %}{{ (ingredient|e|number_format(2) * multiple)|number_format(2) }}{% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock body %}

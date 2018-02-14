@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Portion</h1>
+
+    {{ dump(portion) }}
+
+    {#<table class="table table-hover">#}
+        {#<tbody>#}
+            {#<tr>#}
+                {#<th>Id</th>#}
+                {#<td>{{ portion.id }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Quantity</th>#}
+                {#<td>{{ portion.quantity }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Unity</th>#}
+                {#<td>{{ portion.unity }}</td>#}
+            {#</tr>#}
+        {#</tbody>#}
+    {#</table>#}
+
+    {#<ul>#}
+        {#<li>#}
+            {#<a href="{{ path('portion_index') }}">Back to the list</a>#}
+        {#</li>#}
+        {#<li>#}
+            {#<a href="{{ path('portion_edit', { 'id': portion.id }) }}">Edit</a>#}
+        {#</li>#}
+        {#<li>#}
+            {#{{ form_start(delete_form) }}#}
+                {#<input type="submit" value="Delete">#}
+            {#{{ form_end(delete_form) }}#}
+        {#</li>#}
+    {#</ul>#}
+{% endblock %}
