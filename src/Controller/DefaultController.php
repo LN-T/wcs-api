@@ -69,12 +69,16 @@ class DefaultController extends Controller
         }
         foreach ($quantity as $key2 => $value2) {
 
-            $first_value = $value2[0];
-            $first_value_first = $first_value[0];
-            $first_value_last = $first_value[strlen($first_value)-1];
-            $second_value = $value2[1];
-            $second_value_first = $second_value[0];
-            $second_value_last = $second_value[strlen($second_value)-1];
+            if(isset($value2[0])) {
+                $first_value = $value2[0];
+                $first_value_first = $first_value[0];
+                $first_value_last = $first_value[strlen($first_value) - 1];
+            }
+            if(isset($value2[1])){
+                $second_value = $value2[1];
+                $second_value_first = $second_value[0];
+                $second_value_last = $second_value[strlen($second_value)-1];
+            }
 
             // 1 chiffre entier
             if (is_numeric($first_value)){
