@@ -7,15 +7,16 @@
     {#{% endfor %}#}
     <div class="text-center">
         <br>
-        <img src="https://www.thisolemom.com/wp-content/uploads/2017/02/Smoke-Alarm-Cheers-Me.jpg" width="40%">
+        <img src="https://s-media-cache-ak0.pinimg.com/originals/0a/11/7e/0a117e249aea6c82634efbb9720e8826.jpg" width="25%">
         <br><br>
-        <form action="{{ path('getrecipe') }}" method="post">
+        <form action="{{ path('getdrink') }}" method="post">
             <div class="form-group row">
                 <div class="col-12">
-                    <input class="form-control text-center" name="search" placeholder="Enter recipe or ingredients (separated with , )" id="example-search-input">
+                    <input class="form-control text-center" name="search" placeholder="Enter drink or ingredients (separated with , )" id="example-search-input">
                 </div>
             </div>
-            <input type="submit" value="Me want food!">
+            <i class="fa fa-search-plus"></i>
+            <input type="submit" value="Find!">
         </form>
     </div>
 
