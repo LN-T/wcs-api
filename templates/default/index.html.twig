@@ -112,8 +112,8 @@
             $('#food').text($randomFast);
             $('#drink').text($randomRest);
             $('#movie').text($randomDest);
-            $('#food-url').attr("href", '../public/food/recipe/' + $randomFast);
-            $('#drink-url').attr("href", '../public/drink/recipe/' + $randomRest);
+            $('#food-url').attr("href", '/food/recipe/' + $randomFast);
+            $('#drink-url').attr("href", '/drink/recipe/' + $randomRest);
             $('#movie-url').attr("href", 'https://www.netflix.com/search?q=' + $randomDest);
         });
     </script>
