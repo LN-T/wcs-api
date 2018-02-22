@@ -25,7 +25,7 @@
                     <tr>
                         <td><img src="{{ 'http://assets.absolutdrinks.com/drinks/300x400/' ~ drink.id ~ '(50).jpg' }}" height="150px" width="100px"></td>
                         <td>{{ drink.name }}</td>
-                        <td><a href="{{ path('getingredient', { 'id': drink.id }) }}">Ingredients</a></td>
+                        <td><a href="{{ path('drink_ingredient', { 'id': drink.id }) }}">Ingredients</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

@@ -1,23 +1,103 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('../assets/style.css') }}">
+
+{% endblock %}
+
 {% block body %}
 
-    {#{% for route in routes %}#}
-        {#<li><a href='{{ app.request.schemeAndHttpHost ~ app.request.baseUrl ~ route.1.path}}'>{{ route.0 }}</a></li>#}
-    {#{% endfor %}#}
-    <div class="text-center">
-        <br>
-        <img src="https://s-media-cache-ak0.pinimg.com/originals/0a/11/7e/0a117e249aea6c82634efbb9720e8826.jpg" width="25%">
-        <br><br>
-        <form action="{{ path('getdrink') }}" method="post">
-            <div class="form-group row">
-                <div class="col-12">
-                    <input class="form-control text-center" name="search" placeholder="Enter drink or ingredients (separated with , )" id="example-search-input">
-                </div>
-            </div>
-            <i class="fa fa-search-plus"></i>
-            <input type="submit" value="Find!">
-        </form>
+    <div class="title">
+        <div class="padding">
+            <h1>What's On?</h1>
+        </div>
     </div>
+    <br>
+    <div class="row">
+        <div class="re-roll" onclick="reRoll()">
+            <div class="padding">
+                <i class="fa fa-3x fa-random"></i>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            <div class="response">
+                <a id="food-url" href="" target="_blank">
+                    <div class="padding">
+                        <h2>What Should We Eat?</h2>
+                        <hr>
+                        <i class="fa fa-cutlery"></i>
+                        <h3 class="text-truncate" id="food"></h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <div class="quality">
+                <a id="drink-url" href="" target="_blank">
+                    <div class="padding">
+                        <h2>What Should We Drink?</h2>
+                        <hr>
+                        <i class="fa fa-glass"></i>
+                        <h3 class="text-truncate" id="drink"></h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <div class="dessert">
+                <a id="movie-url" href="" target="_blank">
+                    <div class="padding">
+                        <h2>What Should We Watch?</h2>
+                        <hr>
+                        <i class="fa fa-film"></i>
+                        <h3 class="text-truncate" id="movie"></h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    {#<div class="text-center">#}
+        {#{% if app.request.get('_route') == 'index' %}#}
+            {#<form action="{{ path('index') }}" method="post">#}
+                {#<div class="row">#}
+                    {#<div class="col-sm-12 col-md-6"><input type="submit" name="type" value="food"></div>#}
+                    {#<div class="col-sm-12 col-md-6"><input type="submit" name="type" value="drink"></div>#}
+                {#</div>#}
+                {#<br>#}
+            {#</form>#}
+        {#{% else %}#}
+            {#{% if app.request.get('_route') == 'drink_index' %}#}
+            {#<img src="https://s-media-cache-ak0.pinimg.com/originals/0a/11/7e/0a117e249aea6c82634efbb9720e8826.jpg" width="25%">#}
+            {#{% elseif app.request.get('_route') == 'food_index' %}#}
+            {#<img src="https://www.thisolemom.com/wp-content/uploads/2017/02/Smoke-Alarm-Cheers-Me.jpg" width="25%">#}
+            {#{% endif %}#}
+            {#<br><br>#}
+            {#<form action="{{ (app.request.get('_route') == 'drink_index') ? path('drink_recipe') : path('food_recipe')}}" method="post">#}
+                {#<div class="form-group row">#}
+                    {#<div class="col-12">#}
+                        {#<input class="form-control text-center"#}
+                               {#name="search"#}
+                               {#placeholder="{{ (app.request.get('_route') == 'drink_index') ? 'Enter drink recipe or ingredients (separated with space)' : 'Enter food recipe or ingredients (separated with , )' }}"#}
+                               {#id="example-search-input">#}
+                    {#</div>#}
+                {#</div>#}
+                {#<input type="submit"#}
+                       {#value="{{ (app.request.get('_route') == 'drink_index') ? "Cheers Darlin'" : 'Me want food!' }}">#}
+            {#</form>#}
+        {#{% endif %}#}
+        {#<br>#}
+    {#</div>#}
 
 {% endblock body %}
+
+{% block javascripts %}
+
+    <script type="text/javascript" src="{{ asset('../assets/script.js') }}"></script>
+
+    <script type="text/javascript">
+    </script>
+
+{% endblock %}

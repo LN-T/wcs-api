@@ -1,17 +1,13 @@
 {% extends 'base.html.twig' %}
 
-
 {% block body %}
 
     <div class="text-center">
         <h1 class="text-center">Ingredients list</h1>
         <br>
     </div>
-
     <br>
-
     <div class="row">
-
         <div class="col-xs-12 col-lg-6">
         {% for drink in drinks %}
             {% for video in drink.videos %}
@@ -43,7 +39,6 @@
                 </tbody>
             </table>
         </div>
-
     </div>
 
 {% endblock body %}
