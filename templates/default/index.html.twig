@@ -10,7 +10,7 @@
 
     <div class="title">
         <div class="padding">
-            <h1>What's On?</h1>
+            <h1>What's On Tonight?</h1>
         </div>
     </div>
     <br>
@@ -60,15 +60,6 @@
         </div>
     </div>
     {#<div class="text-center">#}
-        {#{% if app.request.get('_route') == 'index' %}#}
-            {#<form action="{{ path('index') }}" method="post">#}
-                {#<div class="row">#}
-                    {#<div class="col-sm-12 col-md-6"><input type="submit" name="type" value="food"></div>#}
-                    {#<div class="col-sm-12 col-md-6"><input type="submit" name="type" value="drink"></div>#}
-                {#</div>#}
-                {#<br>#}
-            {#</form>#}
-        {#{% else %}#}
             {#{% if app.request.get('_route') == 'drink_index' %}#}
             {#<img src="https://s-media-cache-ak0.pinimg.com/originals/0a/11/7e/0a117e249aea6c82634efbb9720e8826.jpg" width="25%">#}
             {#{% elseif app.request.get('_route') == 'food_index' %}#}
@@ -87,7 +78,6 @@
                 {#<input type="submit"#}
                        {#value="{{ (app.request.get('_route') == 'drink_index') ? "Cheers Darlin'" : 'Me want food!' }}">#}
             {#</form>#}
-        {#{% endif %}#}
         {#<br>#}
     {#</div>#}
 
@@ -95,9 +85,37 @@
 
 {% block javascripts %}
 
-    <script type="text/javascript" src="{{ asset('../assets/script.js') }}"></script>
-
     <script type="text/javascript">
+        //Thanks for all the likes! Be sure to check out the new pen with geolocation based results!
+        //https://codepen.io/azureknight/pen/VYEBGZ
+        var $food = ['California maki', 'Butter chicken', 'Bahn mi', 'Bobun'];
+        var $fastRandom = Math.floor($food.length * Math.random());
+        var $randomFast = $food[$fastRandom];
+        var $drink = ['Aperol Spritz', 'Pisco Sour', 'Mai tai', 'Tequila Sunrise'];
+        var $restRandom = Math.floor($drink.length * Math.random());
+        var $randomRest = $drink[$restRandom];
+        var $movie = ['Dernier train pour Busan', 'The Amityville Horror', 'Dorothy', 'The Thing', 'Sharknado' ];
+        var $movieRandom = Math.floor($movie.length * Math.random());
+        var $randomDest = $movie[$movieRandom];
+        function reRoll(){
+            var food = $food[Math.floor($food.length * Math.random())];
+            var drink = $drink[Math.floor($drink.length * Math.random())];
+            var movie = $movie[Math.floor($movie.length * Math.random())];
+            $('#food').text(food);
+            $('#drink').text(drink);
+            $('#movie').text(movie);
+            $('#food-url').attr("href", 'food/recipe/' + food);
+            $('#drink-url').attr("href", 'food/recipe/' + drink);
+            $('#movie-url').attr("href", 'https://www.netflix.com/search?q=' + movie);
+        }
+        $(document).ready(function(){
+            $('#food').text($randomFast);
+            $('#drink').text($randomRest);
+            $('#movie').text($randomDest);
+            $('#food-url').attr("href", 'food/recipe/' + $randomFast);
+            $('#drink-url').attr("href", 'drink/recipe/' + $randomRest);
+            $('#movie-url').attr("href", 'https://www.netflix.com/search?q=' + $randomDest);
+        });
     </script>
 
 {% endblock %}

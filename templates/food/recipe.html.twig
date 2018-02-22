@@ -27,7 +27,7 @@
                     <td><img src="{{ recipe.image_url }}" height="100px" width="150px"></td>
                     <td>{{ recipe.title }}</td>
                     <td><a href="{{ path('food_ingredient', { 'id': recipe.recipe_id }) }}">Ingredients</a></td>
-                    <td><a href="{{ recipe.source_url }}" target="_blank">Details</a></td>
+                    <td><a href="{{ recipe.source_url }}" target="_blank">Details <i class="fa fa-external-link"></i></a></td>
                 </tr>
             {% endfor %}
             </tbody>
